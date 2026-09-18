@@ -128,10 +128,10 @@ if(form) {
     });
 
     // ⚠️ ВАЖНО: Вставьте сюда свои данные из BotFather
-    const BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"; // Пример: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
-    const CHAT_ID = "YOUR_CHAT_ID_HERE";     // Пример: 123456789
+    const BOT_TOKEN = "8980544567:AAHr5xFehrSfAOVRQimR714TdtUGhFdEryI"; // Пример: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+    const CHAT_ID = "8538272428";     // Пример: 123456789
 
-    if(BOT_TOKEN === "YOUR_BOT_TOKEN_HERE") {
+    if(BOT_TOKEN === "8980544567:AAHr5xFehrSfAOVRQimR714TdtUGhFdEryI") {
         console.warn("Telegram Token не настроен! Показываем заглушку об успехе.");
         setTimeout(() => {
           form.innerHTML = '<div style="text-align:center; padding: 20px; background: rgba(0,255,100,0.1); border: 1px solid #0f0; border-radius: 4px;"><h3>Заявка успешно отправлена!</h3><p>ТОП-Директор свяжется с вами в течение часа.</p></div>';
@@ -163,3 +163,4 @@ if(form) {
     }
   });
 }
+
