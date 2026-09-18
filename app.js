@@ -110,17 +110,56 @@ pages.forEach(p => observer.observe(p));
 
 loadAll();
 
-// === CRM INTEGRATION ===
+// === CRM INTEGRATION (Telegram) ===
 const form = document.getElementById('lead-form');
 if(form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button');
     const originalText = btn.innerText;
     btn.innerText = 'Отправка...';
     btn.disabled = true;
-    setTimeout(() => {
-      form.innerHTML = '<div style="text-align:center; padding: 20px; background: rgba(0,255,100,0.1); border: 1px solid #0f0; border-radius: 4px;"><h3>Заявка успешно отправлена!</h3><p>ТОП-Директор свяжется с вами в течение часа.</p></div>';
-    }, 1500);
+
+    // Сбор данных из формы
+    const formData = new FormData(form);
+    let messageText = "🔥 *Новая заявка на открытие СЦ Тенториум* 🔥\n\n";
+    formData.forEach((value, key) => {
+      messageText += `*${key}:* ${value}\n`;
+    });
+
+    // ⚠️ ВАЖНО: Вставьте сюда свои данные из BotFather
+    const BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"; // Пример: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+    const CHAT_ID = "YOUR_CHAT_ID_HERE";     // Пример: 123456789
+
+    if(BOT_TOKEN === "YOUR_BOT_TOKEN_HERE") {
+        console.warn("Telegram Token не настроен! Показываем заглушку об успехе.");
+        setTimeout(() => {
+          form.innerHTML = '<div style="text-align:center; padding: 20px; background: rgba(0,255,100,0.1); border: 1px solid #0f0; border-radius: 4px;"><h3>Заявка успешно отправлена!</h3><p>ТОП-Директор свяжется с вами в течение часа.</p></div>';
+        }, 1500);
+        return;
+    }
+
+    try {
+      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: messageText,
+          parse_mode: 'Markdown'
+        })
+      });
+
+      if (response.ok) {
+        form.innerHTML = '<div style="text-align:center; padding: 20px; background: rgba(0,255,100,0.1); border: 1px solid #0f0; border-radius: 4px;"><h3>Заявка успешно отправлена!</h3><p>ТОП-Директор свяжется с вами в течение часа.</p></div>';
+      } else {
+        throw new Error('Ошибка отправки в Telegram');
+      }
+    } catch (error) {
+      console.error(error);
+      btn.innerText = 'Ошибка. Попробуйте еще раз';
+      btn.disabled = false;
+      setTimeout(() => { btn.innerText = originalText; }, 3000);
+    }
   });
 }
