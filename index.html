@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Откройте Сервисный центр Тенториум</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ФОН (вместо видео - статичная картинка с эффектами) -->
+  <canvas id="gl-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
+  <div class="grain-overlay"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <span>TENTORIUM</span>
+      <span style="font-size: 0.5em; opacity: 0.7; letter-spacing: 2px;">PARTNERS</span>
+    </div>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link active">Главная</a>
+      <a href="#advantages" class="nav-link">Преимущества</a>
+      <a href="#package" class="nav-link">Что внутри</a>
+      <a href="#finance" class="nav-link">Финансы</a>
+    </div>
+    <a href="#contact" class="btn btn-outline">Оставить заявку</a>
+  </nav>
+
+  <!-- ГЛАВНЫЙ КОНТЕЙНЕР -->
+  <div id="ui-layer">
+    <div class="stage">
+      
+      <!-- СЕКЦИЯ 0: HERO -->
+      <section class="page is-active" data-index="0" id="hero">
+        <div class="content">
+          <h1 class="reveal-3d gradient-text">ЭКО-БИЗНЕС<br>ПОД КЛЮЧ</h1>
+          <p class="reveal-3d desc">Откройте Сервисный центр «Тенториум» в вашем городе. Ликвидный товар, трендовая ниша здоровья и личное наставничество ТОП-Директора.</p>
+          <div class="reveal-3d actions">
+            <a href="#finance" class="btn btn-primary">Рассчитать прибыль</a>
+            <a href="#advantages" class="btn btn-secondary">Подробнее</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- СЕКЦИЯ 1: ПРЕИМУЩЕСТВА -->
+      <section class="page" data-index="1" id="advantages">
+        <div class="content">
+          <h2 class="reveal-3d">ПОЧЕМУ ЭТО ВЫГОДНО?</h2>
+          <div class="reveal-3d grid">
+            <div class="card">
+              <h3>Двойной доход</h3>
+              <p>Вы зарабатываете на розничной наценке (до 40%) и получаете складской процент от компании за оборот вашего центра.</p>
+            </div>
+            <div class="card">
+              <h3>Отечественное</h3>
+              <p>Производство в России (г. Пермь). Никаких рисков с санкциями, таможней и перебоями в логистике.</p>
+            </div>
+            <div class="card">
+              <h3>Тренд на ЗОЖ</h3>
+              <p>Натуральная апифитопродукция. Спрос на поддержку иммунитета и природные компоненты растет с каждым годом.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- СЕКЦИЯ 2: ЧТО ВНУТРИ -->
+      <section class="page" data-index="2" id="package">
+        <div class="content">
+          <h2 class="reveal-3d">ГОТОВАЯ МОДЕЛЬ</h2>
+          <div class="reveal-3d list-container">
+            <div class="list-item">
+              <span class="number">01</span>
+              <div>
+                <h4>Без паушальных взносов</h4>
+                <p>Вы не платите за франшизу. Все инвестиции идут в ремонт, оборудование и закупку вашего собственного товара.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <span class="number">02</span>
+              <div>
+                <h4>Поддержка наставника</h4>
+                <p>Личное сопровождение от ТОП-Директора из Москвы: обучение, помощь в закупке, стандарты обслуживания.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <span class="number">03</span>
+              <div>
+                <h4>Подключение к системе</h4>
+                <p>Ваша точка появляется на официальной карте компании, вы получаете базу клиентов в вашем регионе.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- СЕКЦИЯ 3: ФИНАНСЫ -->
+      <section class="page" data-index="3" id="finance">
+        <div class="content">
+          <h2 class="reveal-3d">ФИНАНСОВЫЙ ПЛАН</h2>
+          <div class="reveal-3d finance-card">
+            <div class="finance-row">
+              <span>Инвестиции на старте</span>
+              <span class="value">250 - 500 тыс. ₽</span>
+            </div>
+            <div class="finance-row">
+              <span>Из них в товар (ликвидный актив)</span>
+              <span class="value">от 150 тыс. ₽</span>
+            </div>
+            <div class="finance-row">
+              <span>Окупаемость проекта</span>
+              <span class="value">4 - 8 месяцев</span>
+            </div>
+            <div class="finance-row highlight">
+              <span>Потенциал чистой прибыли</span>
+              <span class="value">от 100 000 ₽ / мес</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- СЕКЦИЯ 4: КОНТАКТЫ -->
+      <section class="page" data-index="4" id="contact">
+        <div class="content center-content">
+          <h2 class="reveal-3d">СТАНЬТЕ ПАРТНЕРОМ</h2>
+          <p class="reveal-3d">Оставьте заявку, чтобы получить полную финансовую модель и пошаговый план открытия для вашего города.</p>
+          <form class="reveal-3d form" id="lead-form">
+            <input type="text" placeholder="Ваше имя" required />
+            <input type="tel" placeholder="Телефон" required />
+            <input type="text" placeholder="Ваш город" required />
+            <button type="submit" class="btn btn-primary" style="width:100%;">Получить бизнес-план</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
